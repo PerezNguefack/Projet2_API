@@ -23,6 +23,28 @@ public partial class MealListRowVm : ObservableObject
     /// <summary>Aperçu court des instructions (carte).</summary>
     public string ApercuDescription => RecetteTexteHelper.ApercuInstructions(Recette.StrInstructions);
 
+    public string TempsEstime
+    {
+        get
+        {
+            var nbIngredients = Recette.GetIngredientLines().Count;
+            var nbMots = (Recette.StrInstructions ?? string.Empty)
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+
+            int minutes = nbIngredients switch
+            {
+                <= 5  => 15,
+                <= 9  => 25,
+                <= 13 => 40,
+                _     => 60
+            };
+
+            if (nbMots > 300) minutes += 10;
+
+            return $"⏱ ~{minutes} min";
+        }
+    }
+
     public string SymboleCoeur => EstFavori ? "♥" : "♡";
 
     partial void OnEstFavoriChanged(bool value)

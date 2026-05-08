@@ -180,6 +180,8 @@
                                                 <Label FontSize="12" Text="{Binding Recette.StrCategory}" />
                                                 <Label FontSize="12" Text="•" />
                                                 <Label FontSize="12" Text="{Binding Recette.StrArea}" />
+                                                <Label FontSize="12" Text="•" />
+                                                <Label FontSize="12" Text="{Binding TempsEstime}" Opacity="0.75" />
                                             </HorizontalStackLayout>
                                         </VerticalStackLayout>
 
