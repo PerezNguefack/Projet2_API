@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\CCNB2eANNEE\\Printemps\\PROG1342\\RecetteApp\\",
+  "WorkspaceRootPath": "C:\\Users\\Boudr\\source\\ccnb_code2\\Prog_1342_.NET_MAUI\\Projet2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE0BD959-99A7-926F-2D6B-EB6542716FEC}|RecetteApp.csproj|d:\\ccnb2eannee\\printemps\\prog1342\\recetteapp\\views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{BE0BD959-99A7-926F-2D6B-EB6542716FEC}|RecetteApp.csproj|c:\\users\\boudr\\source\\ccnb_code2\\prog_1342_.net_maui\\projet2\\views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{BE0BD959-99A7-926F-2D6B-EB6542716FEC}|RecetteApp.csproj|solutionrelative:views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE0BD959-99A7-926F-2D6B-EB6542716FEC}|RecetteApp.csproj|d:\\ccnb2eannee\\printemps\\prog1342\\recetteapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE0BD959-99A7-926F-2D6B-EB6542716FEC}|RecetteApp.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainPage.xaml",
-              "DocumentMoniker": "D:\\CCNB2eANNEE\\Printemps\\PROG1342\\RecetteApp\\Views\\MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Boudr\\source\\ccnb_code2\\Prog_1342_.NET_MAUI\\Projet2\\Views\\MainPage.xaml",
               "RelativeDocumentMoniker": "Views\\MainPage.xaml",
-              "ToolTip": "D:\\CCNB2eANNEE\\Printemps\\PROG1342\\RecetteApp\\Views\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\Boudr\\source\\ccnb_code2\\Prog_1342_.NET_MAUI\\Projet2\\Views\\MainPage.xaml",
               "RelativeToolTip": "Views\\MainPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwEAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEIAAACJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-06T14:57:36.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "D:\\CCNB2eANNEE\\Printemps\\PROG1342\\RecetteApp\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "MauiProgram.cs",
-              "ToolTip": "D:\\CCNB2eANNEE\\Printemps\\PROG1342\\RecetteApp\\MauiProgram.cs",
-              "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T14:55:11.507Z",
+              "WhenOpened": "2026-05-08T17:16:38.593Z",
               "EditorCaption": ""
             }
           ]

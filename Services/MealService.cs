@@ -131,6 +131,51 @@ public class MealService
         return msg;
     }
 
+    /// <summary>Liste des pays</summary>
+    public async Task<List<string>> GetAreaNamesAsync()
+    {
+        try
+        {
+            var response = await _httpClient.GetAsync("list.php?a=list");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var body = await response.Content.ReadAsStringAsync();
+                var msg = $"TheMealDB HTTP {(int)response.StatusCode} {response.ReasonPhrase}{TruncateBody(body)}";
+                Debug.WriteLine(msg);
+                throw new Exception(msg);
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonSerializer.Deserialize<MealResponse>(json, JsonOptions);
+            return result?.Meals?
+                       .Select(m => (m.StrArea ?? string.Empty).Trim())
+                       .Where(s => s.Length > 0)
+                       .Distinct(StringComparer.OrdinalIgnoreCase)
+                       .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+                       .ToList()
+                   ?? new List<string>();
+        }
+        catch (TaskCanceledException ex)
+        {
+            var msg = "Délai dépassé (timeout) lors de l'appel à TheMealDB.";
+            Debug.WriteLine($"{msg}\n{ex}");
+            throw new Exception(msg, ex);
+        }
+        catch (HttpRequestException ex)
+        {
+            var msg = ClarifierErreseau(ex.Message ?? "Erreur réseau lors de l'appel à TheMealDB.");
+            Debug.WriteLine($"TheMealDB HttpRequestException: {ex}");
+            throw new Exception(msg, ex);
+        }
+        catch (JsonException ex)
+        {
+            var msg = "Réponse TheMealDB invalide (JSON non lisible).";
+            Debug.WriteLine($"{msg}\n{ex}");
+            throw new Exception(msg, ex);
+        }
+    }
+
     /// <summary>Liste des noms de catégories (cuisines) depuis TheMealDB.</summary>
     public async Task<List<string>> GetCategoryNamesAsync()
     {

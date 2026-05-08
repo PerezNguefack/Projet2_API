@@ -74,7 +74,7 @@ public partial class MainViewModel : ObservableObject
 
             SauvegarderCache(_toutesLesMeals);
             await RafraichirIdsFavorisAsync();
-            await ConstruireCategoriesAsync();
+            ConstruireCategoriesAsync();
             RafraichirListeAffichee();
         }
         catch (Exception ex)
@@ -84,7 +84,7 @@ public partial class MainViewModel : ObservableObject
             var cached = await ChargerDepuisCacheOuFallbackLocal();
             _toutesLesMeals = cached;
             await RafraichirIdsFavorisAsync();
-            await ConstruireCategoriesAsync();
+            ConstruireCategoriesAsync();
             RafraichirListeAffichee();
 
             EstErreurVisible = true;
@@ -159,24 +159,16 @@ public partial class MainViewModel : ObservableObject
             .ToHashSet(StringComparer.Ordinal);
     }
 
-    private async Task ConstruireCategoriesAsync()
+    private void ConstruireCategoriesAsync()
     {
         CategoriesFil.Clear();
 
-        List<string> noms;
-        try
-        {
-            noms = await _mealService.GetCategoryNamesAsync();
-        }
-        catch
-        {
-            noms = _toutesLesMeals
-                .Select(m => (m.StrCategory ?? string.Empty).Trim())
-                .Where(s => s.Length > 0)
-                .Distinct(StringComparer.OrdinalIgnoreCase)
-                .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
-                .ToList();
-        }
+        var noms = _toutesLesMeals
+            .Select(m => (m.StrArea ?? string.Empty).Trim())
+            .Where(s => s.Length > 0)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .ToList();
 
         CategoriesFil.Add(new CategoryChipVm(CleToutes, CleToutes, CategoryChipPalette.FondToutes, CategoryChipPalette.TexteToutes, -1));
 
@@ -211,7 +203,7 @@ public partial class MainViewModel : ObservableObject
             !_cleCategorieSelectionnee.Equals(CleToutes, StringComparison.OrdinalIgnoreCase))
         {
             result = result.Where(m =>
-                string.Equals((m.StrCategory ?? string.Empty).Trim(), _cleCategorieSelectionnee, StringComparison.OrdinalIgnoreCase));
+                string.Equals((m.StrArea ?? string.Empty).Trim(), _cleCategorieSelectionnee, StringComparison.OrdinalIgnoreCase));
         }
 
         if (!string.IsNullOrWhiteSpace(q))
@@ -233,7 +225,7 @@ public partial class MainViewModel : ObservableObject
 
         AfficherMessageVideCategorie = filtreCategorieActif && Meals.Count == 0;
         MessageVideCategorie = AfficherMessageVideCategorie
-            ? $"Pas de recette pour la catégorie « {_cleCategorieSelectionnee} »."
+            ? $"Pas de recette pour le pays « {_cleCategorieSelectionnee} »."
             : string.Empty;
     }
 
