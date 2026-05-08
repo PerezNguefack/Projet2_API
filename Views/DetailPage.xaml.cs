@@ -24,6 +24,7 @@ public partial class DetailPage : ContentPage
         }
     }
 
+    // Pas de logique métier — animation visuelle seulement (effet bounce sur le bouton cœur)
     private async void OnHeartClicked(object? sender, EventArgs e)
     {
         if (sender is not VisualElement el)
